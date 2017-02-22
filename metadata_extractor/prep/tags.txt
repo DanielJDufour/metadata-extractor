@@ -1,0 +1,452 @@
+Abstract
+Access_Constraints
+Attribute table definitions
+Bounding box
+BoundingBox
+CI_Address
+CI_Citation
+CI_Contact
+CI_Date
+CI_DateTypeCode
+CI_OnlineResource
+CI_PresentationFormCode
+CI_ResponsibleParty
+CI_RoleCode
+CI_Telephone
+CharacterString
+Child Resources
+Compression Quality
+Contacts Manager
+Copyright Text: 
+Credits
+DIF
+DIF_Creation_Date
+DPI
+DQ_DataQuality
+DQ_Scope
+Data type and format
+Data type/precision
+Data type/precision (e.g. 16-bit integer, floating, etc.)
+Data_Presentation_Form
+Data_Set_Citation
+Data_Set_Language
+Dataset_Creator
+Dataset_Publisher
+Dataset_Release_Date
+DateTime
+Decimal
+Description
+Description (Abstract)
+Description: 
+Descriptive Location
+Descriptive location
+Descriptive location (e.g. countries, continents, global, etc.)
+Document Info: 
+EX_Extent
+EX_GeographicBoundingBox
+EX_TemporalExtent
+Easternmost_Longitude
+End_Date
+Entry_ID
+Entry_Title
+ExternalIdentifier
+ExtrinsicObject
+Fill values
+Format
+Full Extent: 
+Height
+ISO_Topic_Category
+Initial Extent: 
+Keyword
+LI_Lineage
+Layers: 
+Level ID:
+Levels of Detail: 
+LinearRing
+LocalizedString
+LowerCorner
+MD_BrowseGraphic
+MD_CharacterSetCode
+MD_DataIdentification
+MD_DigitalTransferOptions
+MD_Distribution
+MD_Format
+MD_KeywordTypeCode
+MD_Keywords
+MD_LegalConstraints
+MD_MaintenanceFrequencyCode
+MD_MaintenanceInformation
+MD_Metadata
+MD_ProgressCode
+MD_ReferenceSystem
+MD_RestrictionCode
+MD_ScopeCode
+MD_SpatialRepresentationTypeCode
+MD_TopicCategoryCode
+Map Name: 
+Max Scale: 
+MaxImageHeight: 
+MaxImageWidth: 
+MaxRecordCount: 
+Metadata Contact
+Metadata Maintenance
+Metadata_Name
+Metadata_Version
+Min Scale: 
+Name
+Northernmost_Latitude
+Organization
+Origin
+Originating_Center
+Polygon
+Projection or coordinate system
+RS_Identifier
+Record
+Related_URL
+Resource Citation
+Resource Citation Contacts
+Resource Point of Contact
+Sensor
+Service Description: 
+Single Fused Map Cache: 
+Slot
+Southernmost_Latitude
+Spatial Reference
+Spatial Reference: 
+Spatial resolution/minimum mapping unit
+Spatial_Coverage
+Start and end date of data set
+Start_Date
+Summary
+Summary (Purpose)
+Supported Image Format Types: 
+Supported Operations
+Supported Query Formats: 
+Supports Dynamic Layers: 
+Temporal_Coverage
+Tile Info: 
+Time step/interval
+TimePeriod
+Type
+URL
+URL_Content_Type
+Units
+Units: 
+UpperCorner
+Valid range of data values
+Value
+ValueList
+VersionInfo
+View Footprint In:
+View In:
+Westernmost_Longitude
+Width
+abstract
+accconst
+address
+administrativeArea
+begdate
+beginPosition
+bounding
+category
+characterSet
+citation
+citeinfo
+city
+code
+codeSpace
+contact
+contactInfo
+country
+dataQualityInfo
+datacred
+datasetid
+date
+dateStamp
+dateType
+deliveryPoint
+descript
+description
+descriptiveKeywords
+digform
+digtinfo
+direct
+distinfo
+distributionInfo
+eastBoundLongitude
+eastbc
+edition
+electronicMailAddress
+endPosition
+enddate
+entry
+extent
+exterior
+facsimile
+fileDescription
+fileIdentifier
+fileName
+fileType
+format
+formname
+geoform
+geographicElement
+graphicOverview
+hierarchyLevel
+id
+identificationInfo
+identifier
+idinfo
+individualName
+keyword
+keywords
+language
+level
+lineage
+link
+linkage
+maintenanceAndUpdateFrequency
+metadata
+metadataStandardName
+metadataStandardVersion
+metainfo
+metd
+modified
+name
+northBoundLatitude
+northbc
+onLine
+onlink
+organisationName
+origin
+otherConstraints
+phone
+posList
+positionName
+postalCode
+presentationForm
+protocol
+publinfo
+publish
+published
+purpose
+referenceSystemIdentifier
+referenceSystemInfo
+references
+resourceConstraints
+resourceFormat
+resourceMaintenance
+role
+scope
+southBoundLatitude
+southbc
+spatialRepresentationInfo
+spatialRepresentationType
+spdoinfo
+spdom
+srccite
+srcinfo
+statement
+status
+stdorder
+subject
+summary
+supplementalInformation
+temporalElement
+theme
+themekey
+timeinfo
+timeperd
+title
+topicCategory
+transferOptions
+type
+updated
+useConstraints
+version
+voice
+westBoundLongitude
+westbc
+where
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}Access_Constraints
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}DIF
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}DIF_Creation_Date
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}Data_Presentation_Form
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}Data_Set_Citation
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}Data_Set_Language
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}Dataset_Creator
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}Dataset_Publisher
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}Dataset_Release_Date
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}Description
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}Easternmost_Longitude
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}End_Date
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}Entry_ID
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}Entry_Title
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}ISO_Topic_Category
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}Keyword
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}Metadata_Name
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}Metadata_Version
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}Northernmost_Latitude
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}Originating_Center
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}Related_URL
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}Southernmost_Latitude
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}Spatial_Coverage
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}Start_Date
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}Summary
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}Temporal_Coverage
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}Type
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}URL
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}URL_Content_Type
+{http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/}Westernmost_Longitude
+{http://purl.org/dc/elements/1.1/}date
+{http://purl.org/dc/elements/1.1/}format
+{http://purl.org/dc/elements/1.1/}identifier
+{http://purl.org/dc/elements/1.1/}language
+{http://purl.org/dc/elements/1.1/}subject
+{http://purl.org/dc/elements/1.1/}title
+{http://purl.org/dc/elements/1.1/}type
+{http://purl.org/dc/terms/}abstract
+{http://purl.org/dc/terms/}modified
+{http://purl.org/dc/terms/}references
+{http://www.georss.org/georss}where
+{http://www.isotc211.org/2005/gco}CharacterString
+{http://www.isotc211.org/2005/gco}DateTime
+{http://www.isotc211.org/2005/gco}Decimal
+{http://www.isotc211.org/2005/gmd}CI_Address
+{http://www.isotc211.org/2005/gmd}CI_Citation
+{http://www.isotc211.org/2005/gmd}CI_Contact
+{http://www.isotc211.org/2005/gmd}CI_Date
+{http://www.isotc211.org/2005/gmd}CI_DateTypeCode
+{http://www.isotc211.org/2005/gmd}CI_OnlineResource
+{http://www.isotc211.org/2005/gmd}CI_PresentationFormCode
+{http://www.isotc211.org/2005/gmd}CI_ResponsibleParty
+{http://www.isotc211.org/2005/gmd}CI_RoleCode
+{http://www.isotc211.org/2005/gmd}CI_Telephone
+{http://www.isotc211.org/2005/gmd}DQ_DataQuality
+{http://www.isotc211.org/2005/gmd}DQ_Scope
+{http://www.isotc211.org/2005/gmd}EX_Extent
+{http://www.isotc211.org/2005/gmd}EX_GeographicBoundingBox
+{http://www.isotc211.org/2005/gmd}EX_TemporalExtent
+{http://www.isotc211.org/2005/gmd}LI_Lineage
+{http://www.isotc211.org/2005/gmd}MD_BrowseGraphic
+{http://www.isotc211.org/2005/gmd}MD_CharacterSetCode
+{http://www.isotc211.org/2005/gmd}MD_DataIdentification
+{http://www.isotc211.org/2005/gmd}MD_DigitalTransferOptions
+{http://www.isotc211.org/2005/gmd}MD_Distribution
+{http://www.isotc211.org/2005/gmd}MD_Format
+{http://www.isotc211.org/2005/gmd}MD_KeywordTypeCode
+{http://www.isotc211.org/2005/gmd}MD_Keywords
+{http://www.isotc211.org/2005/gmd}MD_LegalConstraints
+{http://www.isotc211.org/2005/gmd}MD_MaintenanceFrequencyCode
+{http://www.isotc211.org/2005/gmd}MD_MaintenanceInformation
+{http://www.isotc211.org/2005/gmd}MD_Metadata
+{http://www.isotc211.org/2005/gmd}MD_ProgressCode
+{http://www.isotc211.org/2005/gmd}MD_ReferenceSystem
+{http://www.isotc211.org/2005/gmd}MD_RestrictionCode
+{http://www.isotc211.org/2005/gmd}MD_ScopeCode
+{http://www.isotc211.org/2005/gmd}MD_SpatialRepresentationTypeCode
+{http://www.isotc211.org/2005/gmd}MD_TopicCategoryCode
+{http://www.isotc211.org/2005/gmd}RS_Identifier
+{http://www.isotc211.org/2005/gmd}URL
+{http://www.isotc211.org/2005/gmd}abstract
+{http://www.isotc211.org/2005/gmd}address
+{http://www.isotc211.org/2005/gmd}administrativeArea
+{http://www.isotc211.org/2005/gmd}characterSet
+{http://www.isotc211.org/2005/gmd}citation
+{http://www.isotc211.org/2005/gmd}city
+{http://www.isotc211.org/2005/gmd}code
+{http://www.isotc211.org/2005/gmd}codeSpace
+{http://www.isotc211.org/2005/gmd}contact
+{http://www.isotc211.org/2005/gmd}contactInfo
+{http://www.isotc211.org/2005/gmd}country
+{http://www.isotc211.org/2005/gmd}dataQualityInfo
+{http://www.isotc211.org/2005/gmd}date
+{http://www.isotc211.org/2005/gmd}dateStamp
+{http://www.isotc211.org/2005/gmd}dateType
+{http://www.isotc211.org/2005/gmd}deliveryPoint
+{http://www.isotc211.org/2005/gmd}description
+{http://www.isotc211.org/2005/gmd}descriptiveKeywords
+{http://www.isotc211.org/2005/gmd}distributionInfo
+{http://www.isotc211.org/2005/gmd}eastBoundLongitude
+{http://www.isotc211.org/2005/gmd}edition
+{http://www.isotc211.org/2005/gmd}electronicMailAddress
+{http://www.isotc211.org/2005/gmd}extent
+{http://www.isotc211.org/2005/gmd}facsimile
+{http://www.isotc211.org/2005/gmd}fileDescription
+{http://www.isotc211.org/2005/gmd}fileIdentifier
+{http://www.isotc211.org/2005/gmd}fileName
+{http://www.isotc211.org/2005/gmd}fileType
+{http://www.isotc211.org/2005/gmd}geographicElement
+{http://www.isotc211.org/2005/gmd}graphicOverview
+{http://www.isotc211.org/2005/gmd}hierarchyLevel
+{http://www.isotc211.org/2005/gmd}identificationInfo
+{http://www.isotc211.org/2005/gmd}individualName
+{http://www.isotc211.org/2005/gmd}keyword
+{http://www.isotc211.org/2005/gmd}language
+{http://www.isotc211.org/2005/gmd}level
+{http://www.isotc211.org/2005/gmd}lineage
+{http://www.isotc211.org/2005/gmd}linkage
+{http://www.isotc211.org/2005/gmd}maintenanceAndUpdateFrequency
+{http://www.isotc211.org/2005/gmd}metadataStandardName
+{http://www.isotc211.org/2005/gmd}metadataStandardVersion
+{http://www.isotc211.org/2005/gmd}name
+{http://www.isotc211.org/2005/gmd}northBoundLatitude
+{http://www.isotc211.org/2005/gmd}onLine
+{http://www.isotc211.org/2005/gmd}organisationName
+{http://www.isotc211.org/2005/gmd}otherConstraints
+{http://www.isotc211.org/2005/gmd}phone
+{http://www.isotc211.org/2005/gmd}positionName
+{http://www.isotc211.org/2005/gmd}postalCode
+{http://www.isotc211.org/2005/gmd}presentationForm
+{http://www.isotc211.org/2005/gmd}protocol
+{http://www.isotc211.org/2005/gmd}purpose
+{http://www.isotc211.org/2005/gmd}referenceSystemIdentifier
+{http://www.isotc211.org/2005/gmd}referenceSystemInfo
+{http://www.isotc211.org/2005/gmd}resourceConstraints
+{http://www.isotc211.org/2005/gmd}resourceFormat
+{http://www.isotc211.org/2005/gmd}resourceMaintenance
+{http://www.isotc211.org/2005/gmd}role
+{http://www.isotc211.org/2005/gmd}scope
+{http://www.isotc211.org/2005/gmd}southBoundLatitude
+{http://www.isotc211.org/2005/gmd}spatialRepresentationInfo
+{http://www.isotc211.org/2005/gmd}spatialRepresentationType
+{http://www.isotc211.org/2005/gmd}statement
+{http://www.isotc211.org/2005/gmd}status
+{http://www.isotc211.org/2005/gmd}supplementalInformation
+{http://www.isotc211.org/2005/gmd}temporalElement
+{http://www.isotc211.org/2005/gmd}title
+{http://www.isotc211.org/2005/gmd}topicCategory
+{http://www.isotc211.org/2005/gmd}transferOptions
+{http://www.isotc211.org/2005/gmd}type
+{http://www.isotc211.org/2005/gmd}useConstraints
+{http://www.isotc211.org/2005/gmd}version
+{http://www.isotc211.org/2005/gmd}voice
+{http://www.isotc211.org/2005/gmd}westBoundLongitude
+{http://www.opengis.net/cat/csw/2.0.2}Record
+{http://www.opengis.net/gml}LinearRing
+{http://www.opengis.net/gml}Polygon
+{http://www.opengis.net/gml}TimePeriod
+{http://www.opengis.net/gml}beginPosition
+{http://www.opengis.net/gml}endPosition
+{http://www.opengis.net/gml}exterior
+{http://www.opengis.net/gml}posList
+{http://www.opengis.net/ows}BoundingBox
+{http://www.opengis.net/ows}LowerCorner
+{http://www.opengis.net/ows}UpperCorner
+{http://www.w3.org/2005/Atom}category
+{http://www.w3.org/2005/Atom}entry
+{http://www.w3.org/2005/Atom}id
+{http://www.w3.org/2005/Atom}link
+{http://www.w3.org/2005/Atom}published
+{http://www.w3.org/2005/Atom}summary
+{http://www.w3.org/2005/Atom}title
+{http://www.w3.org/2005/Atom}updated
+{urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0}Description
+{urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0}ExternalIdentifier
+{urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0}ExtrinsicObject
+{urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0}LocalizedString
+{urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0}Name
+{urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0}Slot
+{urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0}Value
+{urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0}ValueList
+{urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0}VersionInfo

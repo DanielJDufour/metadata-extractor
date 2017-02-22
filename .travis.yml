@@ -1,0 +1,14 @@
+language: python
+
+python:
+    - "2.7"
+
+install: True
+
+notifications:
+    email:
+        - daniel.j.dufour@gmail.com
+
+script:
+    - pip install -r requirements.txt
+    - python -m unittest metadata_extractor.tests.test

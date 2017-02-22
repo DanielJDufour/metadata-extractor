@@ -1,0 +1,31 @@
+
+Abstract
+Attribute table definitions
+Bounding box
+Contacts Manager
+Credits
+Data type and format
+Data type/precision
+Data type/precision (e.g. 16-bit integer, floating, etc.)
+Description
+Description (Abstract)
+Descriptive location
+Descriptive Location
+Descriptive location (e.g. countries, continents, global, etc.)
+Fill values
+Metadata Contact
+Metadata Maintenance
+Name
+Organization
+Projection or coordinate system
+Resource Citation
+Resource Citation Contacts
+Resource Point of Contact
+Sensor
+Spatial resolution/minimum mapping unit
+Start and end date of data set
+Summary
+Summary (Purpose)
+Time step/interval
+Units
+Valid range of data values

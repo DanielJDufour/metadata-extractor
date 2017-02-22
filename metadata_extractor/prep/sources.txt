@@ -1,0 +1,14 @@
+http://geonode.state.gov/
+#http://www.mapstory.org/
+http://geonode.wfp.org/
+#http://nepanode.anl.gov/
+#http://geonode.jrc.ec.europa.eu/
+#http://landscapeportal.org/
+#http://geosinager.defensacivil.gob.bo/
+#http://georiesgos.sergeotecmin.gob.bo/
+#http://geonode.igmbolivia.gob.bo/
+#http://mapas.senamhi.gob.bo/
+#http://cariska.mona.uwi.edu/
+#http://cigno.ve.ismar.cnr.it/
+#http://haitidata.org/
+#http://www.masdap.mw/
