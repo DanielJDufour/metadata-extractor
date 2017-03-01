@@ -123,11 +123,15 @@ def is_metadata(inpt, debug=False):
 
     tag_parts = flatten([tag.split() for tag in tags])
     tokens = tokenize(text)
-    percentage = float(len([token for token in tokens if token in tag_parts])) / len(tokens)
-    if debug: print "percentage:", percentage
+    number_of_tokens = len(tokens)
+    if number_of_tokens == 0:
+        return False
+    else:
+        percentage = float(len([token for token in tokens if token in tag_parts])) / number_of_tokens
+        if debug: print "percentage:", percentage
 
-    # if more than 5% of the input is metadata terms, it's about metadata
-    return percentage > 0.05
+        # if more than 5% of the input is metadata terms, it's about metadata
+        return percentage > 0.05
                 
 def extract_metadata(inpt):
     _type = str(type(inpt))

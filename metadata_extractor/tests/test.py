@@ -38,5 +38,10 @@ class TestParsingMethods(unittest.TestCase):
         split = split_by_indices(split, [4])
         self.assertEqual(split, [[[0,1]],[[2,3],[4]]])
 
+
+    def testfdgis(self):
+        self.assertFalse(is_metadata('restaurant in Alexandria, VA'))
+
+
 if __name__ == '__main__':
     unittest.main()
