@@ -101,6 +101,7 @@ def tokenize(text):
     return terms                                          
 
 def is_metadata(inpt, debug=False):
+  try:
     if debug: print "starting is_metadata with", type(inpt)
     _type = str(type(inpt))
     if isinstance(inpt, str) or isinstance(inpt, unicode):
@@ -119,7 +120,18 @@ def is_metadata(inpt, debug=False):
             if debug: print "inpt is regular text"
             text = inpt
     elif _type == "<class 'django.core.files.uploadedfile.InMemoryUploadedFile'>":
-        text = "\n".join([p.text.encode("utf-8") for p in Document(inpt).paragraphs])
+        if inpt.name.endswith(".doc") or inpt.name.endswith(".docx"):
+            text = "\n".join([p.text.encode("utf-8") for p in Document(inpt).paragraphs])
+        elif inpt.name.endswith(".csv") or inpt.name.endswith(".tsv"):
+            text = inpt.read()
+        else:
+            if debug: print "[metadata-extractor] is_metadata returning False because filetype not supported yet"
+            return False # return false if not type of supported file
+    else:
+        if debug: print "[metadata-extractor] is_metadata returning False because filetype not supported yet"
+        return False # return false if not type of supported file
+ 
+            
 
     tag_parts = flatten([tag.split() for tag in tags])
     tokens = tokenize(text)
@@ -132,6 +144,9 @@ def is_metadata(inpt, debug=False):
 
         # if more than 5% of the input is metadata terms, it's about metadata
         return percentage > 0.05
+  except Exception as e:
+    print "CAUGHT EXCEPTION in is_metadata:", e
+    raise e
                 
 def extract_metadata(inpt):
     _type = str(type(inpt))

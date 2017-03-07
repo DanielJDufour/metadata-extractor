@@ -3,3 +3,5 @@ setup.cfg
 setup.py
 metadata_extractor/__init__.py
 metadata_extractor/converter.py
+metadata_extractor/prep/stopwords.txt
+metadata_extractor/prep/tags.txt

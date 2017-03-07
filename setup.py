@@ -5,7 +5,7 @@ setup(
   packages = ['metadata_extractor'],
   package_dir = {'metadata_extractor': 'metadata_extractor'},
   package_data = {'metadata_extractor': ['__init__.py', 'prep/stopwords.txt', 'prep/tags.txt']},
-  version = '0.7',
+  version = '0.8',
   description = 'Extract metadatas from unstructured and semi-structured sources',
   author = 'Daniel J. Dufour',
   author_email = 'daniel.j.dufour@gmail.com',
