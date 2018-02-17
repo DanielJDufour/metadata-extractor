@@ -1,5 +1,5 @@
 from collections import Counter, defaultdict
-from converter import save_metadata
+from .converter import save_metadata
 from docx import Document
 from docx.shared import RGBColor
 from numpy import median, std
@@ -34,13 +34,13 @@ def simplify_positions(positions):
 
 def join_nested_items(_input, joiner="\n"):
     text = ""
-    if isinstance(_input, unicode) or isinstance(_input, str):
+    if isinstance(_input, str) or isinstance(_input, str):
         text = _input
     elif isinstance(_input, list):
         for item in _input:
             if isinstance(item, list):
                 text += join_nested_items(item)
-            elif isinstance(item, unicode) or isinstance(item, str):
+            elif isinstance(item, str) or isinstance(item, str):
                 text += joiner + item
     return text
 
@@ -89,7 +89,7 @@ def split_by_indices(items, positions, offset=0, return_i=False):
             return result
         
     except Exception as e:
-        print "EXCEPTION trying to split by indices:", e
+        print("EXCEPTION trying to split by indices:", e)
 
 # should I lowercase everything??                                                                                                                               
 def tokenize(text):                                                                                                                                             
@@ -102,9 +102,9 @@ def tokenize(text):
 
 def is_metadata(inpt, debug=False):
   try:
-    if debug: print "starting is_metadata with", type(inpt)
+    if debug: print("starting is_metadata with", type(inpt))
     _type = str(type(inpt))
-    if isinstance(inpt, str) or isinstance(inpt, unicode):
+    if isinstance(inpt, str) or isinstance(inpt, str):
         if isfile(inpt):
             if inpt.endswith(".txt"):
                 with open(inpt) as f:
@@ -114,10 +114,10 @@ def is_metadata(inpt, debug=False):
                 with open(inpt) as f:
                     text = "\n".join([p.text for p in Document(f).paragraphs])
         elif inpt.strip().startswith("http") and inpt.strip().count("\n") < 3:
-            if debug: print "inpt is a url"
+            if debug: print("inpt is a url")
             text = get(inpt).text
         else:
-            if debug: print "inpt is regular text"
+            if debug: print("inpt is regular text")
             text = inpt
     elif _type == "<class 'django.core.files.uploadedfile.InMemoryUploadedFile'>":
         if inpt.name.endswith(".doc") or inpt.name.endswith(".docx"):
@@ -125,10 +125,10 @@ def is_metadata(inpt, debug=False):
         elif inpt.name.endswith(".csv") or inpt.name.endswith(".tsv"):
             text = inpt.read()
         else:
-            if debug: print "[metadata-extractor] is_metadata returning False because filetype not supported yet"
+            if debug: print("[metadata-extractor] is_metadata returning False because filetype not supported yet")
             return False # return false if not type of supported file
     else:
-        if debug: print "[metadata-extractor] is_metadata returning False because filetype not supported yet"
+        if debug: print("[metadata-extractor] is_metadata returning False because filetype not supported yet")
         return False # return false if not type of supported file
  
             
@@ -140,19 +140,19 @@ def is_metadata(inpt, debug=False):
         return False
     else:
         percentage = float(len([token for token in tokens if token in tag_parts])) / number_of_tokens
-        if debug: print "percentage:", percentage
+        if debug: print("percentage:", percentage)
 
         # if more than 5% of the input is metadata terms, it's about metadata
         return percentage > 0.05
   except Exception as e:
-    print "CAUGHT EXCEPTION in is_metadata:", e
+    print("CAUGHT EXCEPTION in is_metadata:", e)
     raise e
                 
 def extract_metadata(inpt):
     _type = str(type(inpt))
-    if isinstance(inpt, str) or isinstance(inpt, unicode):
+    if isinstance(inpt, str) or isinstance(inpt, str):
         if isfile(inpt):
-            print "filepath"
+            print("filepath")
             if inpt.endswith(".txt"):
                 with open(inpt) as f:
                     text = f.read()
@@ -198,10 +198,10 @@ def extract_metadata_from_doc(doc, debug=False):
             if average > 2:
                 more_than_two += 1
 
-        print "more_than_two:", more_than_two
-        print "averages:", averages.most_common(5)
+        print("more_than_two:", more_than_two)
+        print("averages:", averages.most_common(5))
         if more_than_two < 3:
-            print "breaking on level", level
+            print("breaking on level", level)
             break
         else:
             level += 1
@@ -225,7 +225,7 @@ def extract_metadata_from_doc(doc, debug=False):
 # only works if one layer in text now 
 def parse_text(text):
 
-    print "starting parse_text with:", type(text), len(text)
+    print("starting parse_text with:", type(text), len(text))
    
     layers = []
     layer = {}
@@ -247,7 +247,7 @@ def parse_text(text):
     #print "pattern:", pattern
     #print "[]" * 30
     for mg in finditer(pattern, text, MULTILINE):
-        try: print mg.group("key"), ":>>:", mg.group("value")
+        try: print(mg.group("key"), ":>>:", mg.group("value"))
         except: pass
         layer[mg.group("key")] = mg.group("value")
     #print "\nlayer:", layer
@@ -299,20 +299,20 @@ def treeify(doc):
         d[key]['std'] = std(positions) / number_of_paragraphs
 
     # filter out styles that don't have an even distribution, which is defined as std of at least 25%
-    d = dict([(key, value) for key, value in d.items() if value['std'] > 0.25])
+    d = dict([(key, value) for key, value in list(d.items()) if value['std'] > 0.25])
 
     for k in d:
         v = d[k]
-        print "k:", k
-        print "\tcount:", v['count']
-        print "\tsize:", v['size']
-        print "\tstd:", v['std']
+        print("k:", k)
+        print("\tcount:", v['count'])
+        print("\tsize:", v['size'])
+        print("\tstd:", v['std'])
 
     bolds = []
     counts = []
     sizes = []
     stds = []
-    for key, value in d.items():
+    for key, value in list(d.items()):
         bolds.append(value['bold'])
         counts.append(value['count'])
         sizes.append(value['size'])
@@ -329,55 +329,55 @@ def treeify(doc):
     stds.sort()
     stds.reverse()
 
-    print "\n"
-    print "bolds:", bolds
-    print "counts:", counts
-    print "sizes:", sizes
-    print "stds:", stds
+    print("\n")
+    print("bolds:", bolds)
+    print("counts:", counts)
+    print("sizes:", sizes)
+    print("stds:", stds)
   
-    for key, value in d.items():
+    for key, value in list(d.items()):
         # multiplying std by 0.9 makes it a little less important in tie-breaking situations
         value['score'] = bolds.index(value['bold']) + counts.index(value['count']) + stds.index(value['std']) * 0.9 + sizes.index(value['size'])
 
-    styles = sorted(d.items(), key=lambda t: t[1]['score'])
+    styles = sorted(list(d.items()), key=lambda t: t[1]['score'])
 
     for level, (key, style) in enumerate(styles):
-        print "\n\nlevel:", level
-        print "key:", key
-        print "bold:", style['bold']
-        print "count:", style['count']
-        print "positions:", style['positions'][:20]
-        print "positions_for_splitting:", style['positions_for_splitting'][:20], "..."
-        print "size:", style['size']
-        print "std:", style['std']
-        print "score:", style['score']
+        print("\n\nlevel:", level)
+        print("key:", key)
+        print("bold:", style['bold'])
+        print("count:", style['count'])
+        print("positions:", style['positions'][:20])
+        print("positions_for_splitting:", style['positions_for_splitting'][:20], "...")
+        print("size:", style['size'])
+        print("std:", style['std'])
+        print("score:", style['score'])
 
     paragraphs = [p.text for p in paragraphs]
     #tree = split_by_indices(paragraphs, styles[0][1]['positions_for_splitting'])
     # xxx
     tree = split_by_indices(paragraphs, [p-1 for p in styles[0][1]['positions_for_splitting']])
     for key, style in styles[1:]:
-        print "\nstyle:", key
+        print("\nstyle:", key)
         #tree = [split_by_indices(item, style['positions_for_splitting'], offset=sum(map(count_nested_items, tree[0:i]))) for i, item in enumerate(tree)]
         # xxx
         tree = [split_by_indices(item, [p-1 for p in style['positions_for_splitting']], offset=sum(map(count_nested_items, tree[0:i]))) for i, item in enumerate(tree)]
-        print "tree:", count_nested_items(tree)
+        print("tree:", count_nested_items(tree))
 
     return tree
 
 
 def extract_metadata_from_text(text):
-    print "starting extract_metadata_from_text with ", len(text)
+    print("starting extract_metadata_from_text with ", len(text))
 
     pieces = get_pieces(text)
 
 def get_pieces(text):
-    print "starting get_pieces with", len(text)
+    print("starting get_pieces with", len(text))
     #paragraphs = [p for p in text.split("\n") if len(p) >= 3]
     paragraphs = [p for p in text.split("\n")]
-    print "paragraphs = ", paragraphs[:10]
+    print("paragraphs = ", paragraphs[:10])
     number_of_docs = len(paragraphs)
-    print "number_of_docs:", number_of_docs
+    print("number_of_docs:", number_of_docs)
 
     # do tfidf
     document_counts = Counter()
@@ -392,21 +392,21 @@ def get_pieces(text):
         piece['number_of_tokens'] = number_of_tokens = len(tokens)
         piece['term_count'] = term_count = Counter(tokens)
         term_counts.append(term_count)
-        piece['term_frequency'] = dict([ ( token, float(count) / number_of_tokens ) for token, count in term_count.items() ])
+        piece['term_frequency'] = dict([ ( token, float(count) / number_of_tokens ) for token, count in list(term_count.items()) ])
         pieces.append(piece)
 
-    document_frequency = dict([(term, float(count) / number_of_docs) for term, count in document_counts.items()])
+    document_frequency = dict([(term, float(count) / number_of_docs) for term, count in list(document_counts.items())])
     #print "document_frequency:", document_frequency
 
     for piece in pieces:
-        piece['term_tfidf'] = term_tfidf = sorted([(term, float(frequency) / document_frequency[term]) for term, frequency in piece['term_frequency'].items()], key=lambda t: -1*t[1])
+        piece['term_tfidf'] = term_tfidf = sorted([(term, float(frequency) / document_frequency[term]) for term, frequency in list(piece['term_frequency'].items())], key=lambda t: -1*t[1])
         piece['terms'] = [term for term, tfidf in term_tfidf]
 
     pieces = pieces
 
     def find_and_merge_pieces(pieces):
         #print "starting find_and_merge_pieces with", len(pieces), "pieces"
-        print ".",
+        print(".", end=' ')
         #raw_input("press enter to continue")
         number_of_pieces = len(pieces)
         for i in range(number_of_pieces):
@@ -422,8 +422,8 @@ def get_pieces(text):
                 combined_term_count = previous_piece['term_count'] + current_piece['term_count']
                 #print "combined_term_count:", combined_term_count
                 number_of_terms = sum(combined_term_count.values())
-                combined_term_frequency = dict([(term, float(count) / number_of_terms) for term, count in combined_term_count.items()])
-                combined_term_tfidf = sorted([(term, float(frequency) / document_frequency[term]) for term, frequency in combined_term_frequency.items()], key=lambda t: -1*t[1])
+                combined_term_frequency = dict([(term, float(count) / number_of_terms) for term, count in list(combined_term_count.items())])
+                combined_term_tfidf = sorted([(term, float(frequency) / document_frequency[term]) for term, frequency in list(combined_term_frequency.items())], key=lambda t: -1*t[1])
                 combined_terms = [term for term, tfidf in combined_term_tfidf]
                 number_of_combined_terms = len(combined_terms)
                 #print "previous_terms = ", previous_piece['terms']
@@ -445,14 +445,14 @@ def get_pieces(text):
         pass
 
     pieces.reverse()
-    print "len(pieces):", len(pieces)
+    print("len(pieces):", len(pieces))
 
     while find_and_merge_pieces(pieces):
         pass
 
 
     pieces.reverse()
-    print "len(pieces):", len(pieces)
+    print("len(pieces):", len(pieces))
 
     with open("/tmp/output.txt", "wb") as f:
         f.write(("\n" + "=" * 25 + "\n").join([p['text'].encode("utf-8") for p in pieces]))

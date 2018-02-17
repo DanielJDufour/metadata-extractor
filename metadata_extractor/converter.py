@@ -7,7 +7,7 @@ from xml.etree.ElementTree import Element, SubElement, fromstring
 PATH_TO_DIRECTORY_OF_THIS_FILE = dirname(realpath(__file__))
 
 def save_metadata(metadata, _format="ISO 19115-2", path_to_dir="/tmp/"):
-    print "starting save_metadata with", type(metadata), path_to_dir
+    print("starting save_metadata with", type(metadata), path_to_dir)
     for d in metadata:
         #print "d:", d
         tree = ElementTree.parse(PATH_TO_DIRECTORY_OF_THIS_FILE + "/templates/ISO 19115-2.xml")

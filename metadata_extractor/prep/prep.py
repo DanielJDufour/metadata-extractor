@@ -10,7 +10,7 @@ from xml.etree import ElementTree
 
 start = datetime.now()
 
-print "starting create stopwords from downloaded metadata"
+print("starting create stopwords from downloaded metadata")
 
 # should I lowercase everything??
 def tokenize(text):
@@ -49,13 +49,13 @@ for metatype in listdir(path_to_metadata):
                 terms = tokenize(text)
                 term_count.update(terms)
                 number_of_terms = len(terms)
-                term_frequency = dict([(term, float(count)/number_of_terms) for term, count in term_count.items()])
+                term_frequency = dict([(term, float(count)/number_of_terms) for term, count in list(term_count.items())])
                 term_frequencies.append(term_frequency)
                 document_count.update(set(terms))
 
             except Exception as e:
-                print "CAUGHT EXCEPTION for file", path_to_file
-                print e
+                print("CAUGHT EXCEPTION for file", path_to_file)
+                print(e)
     else:
         for filename in listdir(path_to_metatype):
             try:
@@ -72,16 +72,16 @@ for metatype in listdir(path_to_metadata):
                 #print "terms:", terms[:5], "..."
                 term_count.update(terms)
                 number_of_terms = len(terms)
-                term_frequency = dict([(term, float(count)/number_of_terms) for term, count in term_count.items()])
+                term_frequency = dict([(term, float(count)/number_of_terms) for term, count in list(term_count.items())])
                 term_frequencies.append(term_frequency)
                 document_count.update(set(terms))
 
             except Exception as e:
-                print "CAUGHT EXCEPTION for file", path_to_file
-                print e
+                print("CAUGHT EXCEPTION for file", path_to_file)
+                print(e)
 
-document_frequency = dict([(term, float(count)/number_of_documents) for term, count in document_count.items()])
-print "document_frequency:", document_frequency['html'], document_frequency["ESRI"]
+document_frequency = dict([(term, float(count)/number_of_documents) for term, count in list(document_count.items())])
+print("document_frequency:", document_frequency['html'], document_frequency["ESRI"])
 for term_frequency in term_frequencies:
     #print "term_frequency:", term_frequency
     for key in term_frequency:
@@ -93,9 +93,9 @@ for term_frequency in term_frequencies:
         else:
             term_tfidf[key] = [tfidf]
 
-avg_tfidf = dict([ (term, mean(tfidfs)) for term, tfidfs in term_tfidf.items()])
+avg_tfidf = dict([ (term, mean(tfidfs)) for term, tfidfs in list(term_tfidf.items())])
 
-lowest_to_highest = sorted(avg_tfidf.items(), key=lambda tup: tup[1])
+lowest_to_highest = sorted(list(avg_tfidf.items()), key=lambda tup: tup[1])
 #print "lowest:", sorted(x, key=lambda tup: -1*tup[1])[:10]
 stopwords = [key for key, tfidf in lowest_to_highest if tfidf < 1]
 with open(PATH_TO_DIRECTORY_OF_THIS_FILE + "/stopwords.txt", "wb") as f:
@@ -105,4 +105,4 @@ with open(PATH_TO_DIRECTORY_OF_THIS_FILE + "/tags.txt", "wb") as f:
     f.write("\n".join(sorted(tags)))
 
                                                                                                                                                                
-print "tags:", tags
+print("tags:", tags)

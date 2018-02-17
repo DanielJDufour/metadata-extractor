@@ -38,16 +38,16 @@ with open(PATH_TO_DIRECTORY_OF_THIS_FILE + "/sources.txt") as f:
 
 for url_to_source in list_of_sources:
 
-    print "url_to_source:", url_to_source
+    print("url_to_source:", url_to_source)
 
     # skip over commented
     if url_to_source.startswith("#"):
-        print "skipped:", url_to_source
+        print("skipped:", url_to_source)
         continue
 
     try:
         url_to_capabilities = url_to_source.strip("/") + "/geoserver/wms?request=GetCapabilities&service=WMS&version=1.0.0"
-        print "getting " + url_to_capabilities
+        print("getting " + url_to_capabilities)
         xml = get(url_to_capabilities).text
 
         with open("/tmp/tmpxml.xml", "wb") as f:
@@ -55,9 +55,9 @@ for url_to_source in list_of_sources:
 
         tree = ElementTree.parse("/tmp/tmpxml.xml")
 
-        print "tree:", type(tree)
+        print("tree:", type(tree))
         for onlineResource in tree.findall(".//MetadataURL/OnlineResource"):
-            for key in onlineResource.keys():
+            for key in list(onlineResource.keys()):
                 if "href" in key:
                     url = onlineResource.get(key)
                     if url:
@@ -68,13 +68,13 @@ for url_to_source in list_of_sources:
                             path_to_file = PATH_TO_DIRECTORY_OF_THIS_FILE + "/metadata/" + metatype + "/" + layerId
                             if not isfile(path_to_file):
                                 with open(path_to_file, "wb") as f:
-                                    print "\tgetting", url_to_metadata_xml_file
+                                    print("\tgetting", url_to_metadata_xml_file)
                                     f.write(get(url_to_metadata_xml_file).text.encode("utf-8"))
 
-        print "took", (datetime.now() - start).total_seconds(), "seconds"
+        print("took", (datetime.now() - start).total_seconds(), "seconds")
 
     except Exception as e:
-        print e
+        print(e)
         raise e
 
 
