@@ -11,9 +11,9 @@ from xml.etree import ElementTree
 
 PATH_TO_DIRECTORY_OF_THIS_FILE = dirname(realpath(__file__))
 
-with open(PATH_TO_DIRECTORY_OF_THIS_FILE + "/prep/stopwords.txt") as f:
+with open(PATH_TO_DIRECTORY_OF_THIS_FILE + "/prep/stopwords.txt", encoding="utf-8") as f:
     stopwords = f.read().strip().split("\n")
-with open(PATH_TO_DIRECTORY_OF_THIS_FILE + "/prep/tags.txt") as f:
+with open(PATH_TO_DIRECTORY_OF_THIS_FILE + "/prep/tags.txt", encoding="utf-8") as f:
     tags = sorted(f.read().strip().split("\n"), key=lambda tag: -1*len(tag))
 
 def flatten(iterable, levels=100):
@@ -107,11 +107,11 @@ def is_metadata(inpt, debug=False):
     if isinstance(inpt, str) or isinstance(inpt, str):
         if isfile(inpt):
             if inpt.endswith(".txt"):
-                with open(inpt) as f:
+                with open(inpt, encoding="utf-8") as f:
                     text = f.read()
                 return extract_metadata_from_text(text)
             elif inpt.endswith(".doc") or inpt.endswith(".docx"):
-                with open(inpt) as f:
+                with open(inpt, "rb") as f:
                     text = "\n".join([p.text for p in Document(f).paragraphs])
         elif inpt.strip().startswith("http") and inpt.strip().count("\n") < 3:
             if debug: print("inpt is a url")
@@ -154,11 +154,11 @@ def extract_metadata(inpt):
         if isfile(inpt):
             print("filepath")
             if inpt.endswith(".txt"):
-                with open(inpt) as f:
+                with open(inpt, encoding="utf-8") as f:
                     text = f.read()
                 return extract_metadata_from_text(text)
             elif inpt.endswith(".doc") or inpt.endswith(".docx"):
-                with open(inpt) as f:
+                with open(inpt, "rb") as f:
                     doc = Document(f)
                 return extract_metadata_from_doc(doc)
     elif _type == "<class 'django.core.files.uploadedfile.InMemoryUploadedFile'>":
